@@ -98,6 +98,8 @@ section h2{font-size:1.6rem;font-weight:700;margin-bottom:1.2rem;display:flex;al
 .wallet-addr{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--accent3);word-break:break-all;background:rgba(61,220,132,.05);padding:.4rem .8rem;border-radius:6px;border:1px solid rgba(61,220,132,.15);display:inline-block;margin-top:.5rem}
 footer{text-align:center;padding:3rem 0;color:var(--dim);font-size:.8rem}
 @media(max-width:600px){.hero h1{font-size:2rem}nav .links a{font-size:.75rem}section{padding:1.5rem}}
+
+.read-more{display:inline-block;margin-top:.8rem;color:var(--accent);text-decoration:none;font-weight:600;font-size:.9rem;transition:color .2s}.read-more:hover{color:#fff}
 </style>
 </head>
 <body>
@@ -172,6 +174,8 @@ footer{text-align:center;padding:3rem 0;color:var(--dim);font-size:.8rem}
         <button type="submit" data-en="Post" data-it="Invia">Post</button>
       </form>
     </div>
+  
+    <a class="read-more" href="post-csv-json.html">Read full post →</a>
   </div>
 
   <!-- POST 5: Fusion 360 SEO -->
@@ -188,6 +192,8 @@ footer{text-align:center;padding:3rem 0;color:var(--dim);font-size:.8rem}
         <button type="submit" data-en="Post" data-it="Invia">Post</button>
       </form>
     </div>
+  
+    <a class="read-more" href="post-fusion360.html">Read full post →</a>
   </div>
 
   <!-- POST 1 -->
@@ -204,6 +210,8 @@ footer{text-align:center;padding:3rem 0;color:var(--dim);font-size:.8rem}
         <button type="submit" data-en="Post" data-it="Invia">Post</button>
       </form>
     </div>
+  
+    <a class="read-more" href="post-first-steps.html">Read full post →</a>
   </div>
 
   <!-- POST 2 -->
@@ -219,6 +227,8 @@ footer{text-align:center;padding:3rem 0;color:var(--dim);font-size:.8rem}
         <button type="submit" data-en="Post" data-it="Invia">Post</button>
       </form>
     </div>
+  
+    <a class="read-more" href="post-why-website.html">Read full post →</a>
   </div>
 
   <!-- POST 3 -->
@@ -234,6 +244,8 @@ footer{text-align:center;padding:3rem 0;color:var(--dim);font-size:.8rem}
         <button type="submit" data-en="Post" data-it="Invia">Post</button>
       </form>
     </div>
+  
+    <a class="read-more" href="post-usdc-base.html">Read full post →</a>
   </div>
 </section>
 
@@ -310,5 +322,7 @@ function addComment(id, e){
   form.reset();
 }
 </script>
-</body>
+<script>
+function subscribeNewsletter(e){e.preventDefault();var em=e.target.querySelector('input[type=email]').value;var tp=document.getElementById('nl-topics').value;var s=JSON.parse(localStorage.getItem('pippo_nl')||'[]');if(s.some(x=>x.email===em)){alert('Already subscribed!');return;}s.push({email:em,topic:tp,date:new Date().toISOString()});localStorage.setItem('pippo_nl',JSON.stringify(s));alert('Subscribed to '+tp+' newsletter. Check your inbox (demo).');e.target.reset();}
+</script></body>
 </html>
