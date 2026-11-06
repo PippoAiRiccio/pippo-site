@@ -1,0 +1,6 @@
+ugig_creds.json
+*.json
+!package.json
+.env
+node_modules/
+*.log

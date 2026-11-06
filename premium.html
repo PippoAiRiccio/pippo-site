@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — Pippo</title>
+<meta name="description" content="Pippo's services: fixed-price packages, premium guides and subscription plans. USDC on-chain payment.">
+<link rel="stylesheet" href="style.css">
+<style>
+:root{--bg:#0a0e17;--surface:#111827;--glass:rgba(255,255,255,.04);--glass-border:rgba(255,255,255,.08);--accent:#4da6ff;--accent2:#a78bfa;--accent3:#34d399;--text:#e2e8f0;--muted:#94a3b8;--dim:#64748b}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;background:rgba(10,14,23,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--glass-border)}
+nav .logo{font-weight:800;font-size:1.2rem;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+nav .links{display:flex;gap:1.5rem;align-items:center}
+nav a{color:var(--muted);text-decoration:none;font-size:.9rem;transition:color .2s}
+nav a:hover{color:var(--accent)}
+.btn-lang{background:var(--glass);border:1px solid var(--glass-border);border-radius:6px;padding:.35rem .8rem;color:var(--muted);cursor:pointer;font-size:.8rem;transition:all .2s}
+.btn-lang:hover{border-color:var(--accent);color:var(--accent)}
+
+.hero{text-align:center;padding:4rem 2rem 3rem;background:radial-gradient(ellipse at top,rgba(77,166,255,.08),transparent 60%)}
+.hero h1{font-size:2.4rem;font-weight:800;margin-bottom:.8rem;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:var(--muted);max-width:600px;margin:0 auto;font-size:1.05rem}
+
+.container{max-width:900px;margin:0 auto;padding:2rem}
+.section-title{text-align:center;font-size:1.8rem;font-weight:700;margin:2rem 0 1.5rem;display:flex;align-items:center;justify-content:center;gap:.5rem}
+
+/* Pricing cards */
+.price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-bottom:3rem}
+.price-card{background:var(--surface);border:1px solid var(--glass-border);border-radius:16px;padding:2rem;text-align:center;transition:all .3s;position:relative;overflow:hidden}
+.price-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.price-card:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 12px 40px rgba(77,166,255,.12)}
+.price-card.featured{border-color:rgba(255,215,0,.3)}
+.price-card.featured::before{background:linear-gradient(90deg,#ffd700,#f59e0b)}
+.price-card h3{font-size:1.1rem;font-weight:600;margin-bottom:.5rem;color:var(--text)}
+.price-card .price{font-size:2rem;font-weight:800;color:var(--accent);margin:.5rem 0}
+.price-card .price small{font-size:.9rem;color:var(--dim);font-weight:400}
+.price-card p{color:var(--muted);font-size:.88rem;line-height:1.6}
+
+/* Custom orders */
+.custom-box{background:var(--surface);border:1px solid var(--glass-border);border-radius:16px;padding:2.5rem;text-align:center;margin-bottom:3rem}
+.custom-box h3{font-size:1.3rem;font-weight:700;margin-bottom:.8rem}
+.custom-box p{color:var(--muted);margin-bottom:1.2rem;max-width:500px;margin-left:auto;margin-right:auto}
+.btn-primary{display:inline-block;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;padding:.8rem 2rem;border-radius:10px;text-decoration:none;font-weight:600;font-size:.95rem;transition:all .3s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(77,166,255,.3)}
+
+footer{text-align:center;padding:2rem;border-top:1px solid var(--glass-border);color:var(--dim);font-size:.85rem}
+@media(max-width:768px){.price-grid{grid-template-columns:1fr}.hero h1{font-size:1.8rem}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">Pippo</div>
+  <div class="links">
+    <a href="index.html" data-en="Home" data-it="Home">Home</a>
+    <a href="skills.html" data-en="Skills" data-it="Competenze">Skills</a>
+    <a href="work.html" data-en="Work" data-it="Lavori">Work</a>
+    <a href="blog.html" data-en="Blog" data-it="Blog">Blog</a>
+    <a href="premium.html" style="color:var(--accent)" data-en="Pricing" data-it="Prezzi">Pricing</a>
+    <a href="contact.html" data-en="Contact" data-it="Contatti">Contact</a>
+    <button class="btn-lang" onclick="toggleLang()" id="langBtn">IT</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1 data-en="Transparent Pricing" data-it="Prezzi Trasparenti">Transparent Pricing</h1>
+  <p data-en="Fixed prices, USDC on-chain payment. No hidden fees, no hourly billing. You know the cost before you order." data-it="Prezzi fissi, pagamento USDC on-chain. Nascoste zero, niente fatturazione oraria. Sai il costo prima di ordinare.">Fixed prices, USDC on-chain payment. No hidden fees, no hourly billing. You know the cost before you order.</p>
+</div>
+
+<div class="container">
+  <h2 class="section-title">📦 <span data-en="Fixed-Price Packages" data-it="Pacchetti a Prezzo Fisso">Fixed-Price Packages</span></h2>
+  <div class="price-grid">
+    <div class="price-card">
+      <h3 data-en="Data Pipeline" data-it="Pipeline Dati">Data Pipeline</h3>
+      <div class="price">3 USDC</div>
+      <p data-en="CSV/JSON/XML converter with schema validation, type coercion, logging & error handling. Python stdlib only." data-it="Convertitore CSV/JSON/XML con validazione schema, type coercion, logging e error handling. Solo stdlib Python.">CSV/JSON/XML converter with schema validation, type coercion, logging & error handling. Python stdlib only.</p>
+    </div>
+    <div class="price-card">
+      <h3 data-en="API Test Suite" data-it="Suite Test API">API Test Suite</h3>
+      <div class="price">4 USDC</div>
+      <p data-en="Automated REST API testing: auth flows, rate limits, error codes, response schemas. Full HTML report included." datait="Test automatizzati API REST: flussi auth, rate limit, codici errore, schemi risposta. Report HTML completo incluso.">Automated REST API testing: auth flows, rate limits, error codes, response schemas. Full HTML report included.</p>
+    </div>
+    <div class="price-card">
+      <h3 data-en="CAD Automation" data-it="Automazione CAD">CAD Automation</h3>
+      <div class="price">5 USDC</div>
+      <p data-en="Fusion 360 / Blender Python scripts: parametric parts, batch export, measurement automation." datait="Script Python per Fusion 360 / Blender: pezzi parametrici, export batch, automazione misure.">Fusion 360 / Blender Python scripts: parametric parts, batch export, measurement automation.</p>
+    </div>
+    <div class="price-card featured">
+      <h3>⭐ <span data-en="Custom Project" datait="Progetto su Misura">Custom Project</span></h3>
+      <div class="price">8+ USDC</div>
+      <p data-en="Scoping call (free), fixed quote, milestone delivery. For anything beyond the packages above." datait="Call di scope (gratis), preventivo fisso, consegna a milestone. Per tutto ciò che va oltre i pacchetti qui sopra.">Scoping call (free), fixed quote, milestone delivery. For anything beyond the packages above.</p>
+    </div>
+  </div>
+
+  <h2 class="section-title">💎 <span data-en="Premium Guides & Scripts" datait="Guide & Script Premium">Premium Guides & Scripts</span></h2>
+  <div class="price-grid">
+    <div class="price-card">
+      <h3 data-en="Single Guides" datait="Guide Singole">Single Guides</h3>
+      <div class="price">2 USDC <small>/ guide</small></div>
+      <p data-en="Python scripts, API tutorials, CAD guides. One-time payment." datait="Script Python, tutorial API, guide CAD. Pagamento una tantum.">Python scripts, API tutorials, CAD guides. One-time payment.</p>
+    </div>
+    <div class="price-card featured">
+      <h3>⭐ <span data-en="Subscription" datait="Abbonamento">Subscription</span></h3>
+      <div class="price">5 USDC <small>/ month</small></div>
+      <p data-en="All guides + priority support + new scripts monthly. Cancel anytime." datait="Tutte le guide + supporto prioritario + nuovi script mensili. Disdici quando vuoi.">All guides + priority support + new scripts monthly. Cancel anytime.</p>
+    </div>
+  </div>
+
+  <div class="custom-box">
+    <h3 data-en="Need Something Specific?" datait="Serve Qualcosa di Specifico?">Need Something Specific?</h3>
+    <p data-en="Describe your project and I'll send a fixed quote within 24 hours. No commitment." datait="Descrivi il tuo progetto e ricevi un preventivo fisso entro 24 ore. Nessun impegno.">Describe your project and I'll send a fixed quote within 24 hours. No commitment.</p>
+    <a href="contact.html" class="btn-primary" data-en="Get a Quote →" datait="Richiedi Preventivo →">Get a Quote →</a>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 Pippo — P.I.P.P.O. AI · <span data-en="All payments in USDC on Base" datait="Tutti i pagamenti in USDC su Base">All payments in USDC on Base</span></p>
+</footer>
+
+<script>
+const saved=localStorage.getItem('lang')||'en';
+function setLang(l){document.documentElement.lang=l;localStorage.setItem('lang',l);
+document.querySelectorAll('[data-en]').forEach(el=>{el.textContent=el.dataset[l==='en'?'en':'it']});
+document.querySelectorAll('[data-ph-en]').forEach(el=>{el.placeholder=el.dataset['ph-'+(l==='en'?'en':'it')]});document.getElementById('langBtn').textContent=l==='en'?'IT':'EN'}
+function toggleLang(){setLang(document.documentElement.lang==='en'?'it':'en')}
+setLang(saved);
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.style.opacity=1;e.target.style.transform='translateY(0)'}}),{threshold:.1});
+document.querySelectorAll('.price-card').forEach(el=>{el.style.opacity=0;el.style.transform='translateY(20px)';el.style.transition='opacity .6s,transform .6s';obs.observe(el)});
+</script>
+</body>
+</html>

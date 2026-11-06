@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Pippo</title>
+<meta name="description" content="Pippo's blog: technical articles on Python, CAD automation, data pipelines, web development and AI agent workflows.">
+<link rel="stylesheet" href="style.css">
+<style>
+:root{--bg:#0a0e17;--surface:#111827;--glass:rgba(255,255,255,.04);--glass-border:rgba(255,255,255,.08);--accent:#4da6ff;--accent2:#a78bfa;--accent3:#34d399;--text:#e2e8f0;--muted:#94a3b8;--dim:#64748b}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;background:rgba(10,14,23,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--glass-border)}
+nav .logo{font-weight:800;font-size:1.2rem;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+nav .links{display:flex;gap:1.5rem;align-items:center}
+nav a{color:var(--muted);text-decoration:none;font-size:.9rem;transition:color .2s}
+nav a:hover{color:var(--accent)}
+.lang-btn{background:var(--glass);border:1px solid var(--glass-border);border-radius:6px;padding:.3rem .7rem;color:var(--muted);cursor:pointer;font-size:.8rem;transition:all .2s}
+.lang-btn:hover{border-color:var(--accent);color:var(--accent)}
+.page-header{padding:4rem 2rem 2rem;text-align:center;background:radial-gradient(ellipse at 50% 0%,rgba(77,166,255,.06),transparent 60%)}
+.page-header h1{font-size:2.4rem;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.page-header p{color:var(--muted);margin-top:.5rem;max-width:600px;margin-left:auto;margin-right:auto}
+.blog-grid{max-width:1100px;margin:0 auto;padding:2rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem}
+.post-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:16px;overflow:hidden;transition:all .3s;display:flex;flex-direction:column}
+.post-card:hover{transform:translateY(-4px);border-color:rgba(77,166,255,.3);box-shadow:0 8px 32px rgba(77,166,255,.08)}
+.post-card .thumb{width:100%;aspect-ratio:16/9;object-fit:cover;background:#1e293b}
+.post-card .card-body{padding:1.4rem;flex:1;display:flex;flex-direction:column}
+.post-card h3{font-size:1.1rem;font-weight:700;margin-bottom:.4rem;color:var(--text)}
+.post-card .meta{color:var(--dim);font-size:.8rem;margin-bottom:.8rem}
+.post-card .excerpt{color:var(--muted);font-size:.88rem;flex:1;line-height:1.6}
+.post-card .read-more{margin-top:1rem;color:var(--accent);text-decoration:none;font-size:.85rem;font-weight:600;display:flex;align-items:center;gap:.3rem;transition:gap .2s}
+.post-card .read-more:hover{gap:.6rem}
+.tags{display:flex;gap:.4rem;margin-top:.8rem;flex-wrap:wrap}
+.tag{background:rgba(77,166,255,.08);border:1px solid rgba(77,166,255,.15);border-radius:4px;padding:.2rem .6rem;font-size:.7rem;color:var(--accent)}
+footer{text-align:center;padding:3rem 2rem;border-top:1px solid var(--glass-border);margin-top:3rem}
+footer a{color:var(--muted);text-decoration:none;font-size:.85rem}
+footer a:hover{color:var(--accent)}
+</style>
+</head>
+<
+...[parte centrale tolta: contesto pieno]...
+a href="contact.html" data-en="Contact" data-it="Contatti">Contact</a></p>
+  <p style="margin-top:.5rem">© 2025 · Built by Pippo, for Pippo.</p>
+</footer>
+<script>
+const saved=localStorage.getItem('lang')||'en';
+function setLang(l){document.querySelectorAll('[data-en]').forEach(el=>{el.textContent=l==='it'?el.dataset.it:el.dataset.en});document.documentElement.lang=l;localStorage.setItem('lang',l);const b=document.getElementById('langBtn');if(b)b.textContent=l==='en'?'IT':'EN'}
+function toggleLang(){setLang(document.documentElement.lang==='en'?'it':'en')}
+setLang(saved);
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.style.opacity=1;e.target.style.transform='translateY(0)'}}),{threshold:.1});
+document.querySelectorAll('.post-card').forEach(el=>{el.style.opacity=0;el.style.transform='translateY(20px)';el.style.transition='opacity .6s,transform .6s';obs.observe(el)});
+</script>
+</body>
+</html>
